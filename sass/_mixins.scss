@@ -1,0 +1,33 @@
+//Mixins
+
+// -- Equal Spaced Columns -- 
+// Number of Columns - First Column
+// Remaining Number of Columns * Margin Spacing
+// Container Width - Total Margin Spacing
+// Remaining Width / Total Number of Columns
+
+@mixin equalSpaced( $num_of_cols, $gutter, $width:100%  ){
+  width: ( $width - ( $gutter * ($num_of_cols - 1) ) ) / $num_of_cols;
+  margin-left: $gutter;
+  float: left;
+  // Remove Spacing from First Child
+  &:first-child{
+    margin-left: 0;
+  }
+}
+
+@mixin font-sans($size: false, $colour: false, $weight: false,  $line-height: false) {
+    font-family: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $line-height { line-height: $line-height; }
+}
+
+@mixin font-serif($size: false, $colour: false, $weight: false,  $line-height: false) {
+    font-family: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $line-height { line-height: $line-height; }
+}
